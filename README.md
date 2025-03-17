@@ -17,12 +17,12 @@ Welcome to my adorable Neovim setup! This configuration is built on LazyVim and 
 - **Docker Integration**: LazyDocker for container management!
 - **GitHub Copilot**: AI-powered coding assistant to make your life easier! ヾ(＠⌒ー⌒＠)ノ
 
-## (｡♥‿♥｡) Setup Guide
+## (｡♥‿♥｡) Setup Guide using Arch Linux with Kitty Terminal
 
 ### Prerequisites
 
 ```bash
-# Make sure you have these installed first! Arch Linux btw 👀
+# Make sure you have these installed first!
 pacman -S neovim git ripgrep fd lazygit node npm
 ```
 
@@ -51,8 +51,6 @@ nvim
 LazyVim will automatically install all plugins on first launch! Just sit back and enjoy the show~ (≧◡≦)
 
 ### Arch Linux & Kitty Setup Notes
-
-Since you're an Arch Linux user with Kitty terminal:
 
 ```bash
 # Install some nice-to-have tools
