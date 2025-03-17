@@ -233,32 +233,45 @@ return {
     },
   },
 
-  -- Configure null-ls for formatters & linters
+  -- None-ls for formatters & linters (successor to null-ls)
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
     opts = function(_, opts)
-      local nls = require("null-ls")
+      local null_ls = require("null-ls")
       opts.sources = opts.sources or {}
 
+      -- Safe function to add a source only if it exists
+      local function safe_add_source(source_builder)
+        local status, source = pcall(function()
+          return source_builder
+        end)
+        if status and source then
+          table.insert(opts.sources, source)
+        end
+      end
+
       -- Existing formatters
-      table.insert(opts.sources, nls.builtins.formatting.gofumpt)
-      table.insert(opts.sources, nls.builtins.formatting.black)
+      safe_add_source(null_ls.builtins.formatting.gofumpt)
+      safe_add_source(null_ls.builtins.formatting.black)
 
       -- Infrastructure formatters and linters
-      table.insert(opts.sources, nls.builtins.formatting.terraform_fmt)
-      table.insert(opts.sources, nls.builtins.diagnostics.tflint)
-      table.insert(opts.sources, nls.builtins.diagnostics.hadolint)
-      table.insert(opts.sources, nls.builtins.diagnostics.ansiblelint)
+      safe_add_source(null_ls.builtins.formatting.terraform_fmt)
+      safe_add_source(null_ls.builtins.diagnostics.tflint)
+      safe_add_source(null_ls.builtins.diagnostics.hadolint)
+      safe_add_source(null_ls.builtins.diagnostics.ansiblelint)
 
       -- PHP formatters and linters
-      table.insert(opts.sources, nls.builtins.formatting.phpcsfixer)
-      table.insert(opts.sources, nls.builtins.diagnostics.phpstan)
+      safe_add_source(null_ls.builtins.formatting.phpcsfixer)
+      safe_add_source(null_ls.builtins.diagnostics.phpstan)
 
       -- C/C++ formatters
-      table.insert(opts.sources, nls.builtins.formatting.clang_format)
+      safe_add_source(null_ls.builtins.formatting.clang_format)
 
       -- Rust formatters
-      table.insert(opts.sources, nls.builtins.formatting.rustfmt)
+      safe_add_source(null_ls.builtins.formatting.rustfmt)
+
+      return opts
     end,
   },
 
@@ -281,7 +294,7 @@ return {
       -- The config is automatically applied when the server starts
       local on_attach = function(client, bufnr)
         -- Enable completion triggered by <c-x><c-o>
-        vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+        vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
         -- Java-specific mappings
         vim.keymap.set(
           "n",
