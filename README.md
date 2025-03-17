@@ -22,7 +22,7 @@ Welcome to my adorable Neovim setup! This configuration is built on LazyVim and 
 ### Prerequisites
 
 ```bash
-# Make sure you have these installed first!
+# Make sure you have these installed first! Arch Linux btw 👀
 pacman -S neovim git ripgrep fd lazygit node npm
 ```
 
@@ -39,7 +39,7 @@ mv ~/.config/nvim ~/.config/nvim.backup
 
 ```bash
 # Clone the configuration
-git clone https://github.com/yourusername/nvim-config.git ~/.config/nvim
+git clone https://github.com/WST-T/nvim-config.git ~/.config/nvim
 ```
 
 3. **Start Neovim** and watch the magic happen! (ﾉ≧∀≦)ﾉ
