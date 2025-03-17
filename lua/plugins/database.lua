@@ -24,7 +24,6 @@ return {
       vim.g.dbs = {
         dev_postgres = "postgresql://user:password@localhost:5432/dev_db",
         cockroach = "postgresql://user:password@localhost:26257/cockroach_db?sslmode=disable",
-        scylla = "scylla://user:password@localhost:9042/keyspace",
         sqlite = "sqlite:/path/to/your/database.sqlite",
       }
     end,
