@@ -233,46 +233,97 @@ return {
     },
   },
 
-  -- None-ls for formatters & linters (successor to null-ls)
+  -- Configure formatter
   {
-    "nvimtools/none-ls.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    opts = function(_, opts)
-      local null_ls = require("null-ls")
-      opts.sources = opts.sources or {}
+    "stevearc/conform.nvim",
+    optional = true,
+    opts = {
+      formatters_by_ft = {
+        -- Go
+        go = { "gofumpt", "goimports" },
 
-      -- Safe function to add a source only if it exists
-      local function safe_add_source(source_builder)
-        local status, source = pcall(function()
-          return source_builder
-        end)
-        if status and source then
-          table.insert(opts.sources, source)
-        end
-      end
+        -- Python
+        python = { "black", "isort" },
 
-      -- Existing formatters
-      safe_add_source(null_ls.builtins.formatting.gofumpt)
-      safe_add_source(null_ls.builtins.formatting.black)
+        -- Web development
+        javascript = { "prettier" },
+        typescript = { "prettier" },
+        javascriptreact = { "prettier" },
+        typescriptreact = { "prettier" },
+        svelte = { "prettier" },
+        astro = { "prettier" },
+        html = { "prettier" },
+        css = { "prettier" },
+        json = { "prettier" },
 
-      -- Infrastructure formatters and linters
-      safe_add_source(null_ls.builtins.formatting.terraform_fmt)
-      safe_add_source(null_ls.builtins.diagnostics.tflint)
-      safe_add_source(null_ls.builtins.diagnostics.hadolint)
-      safe_add_source(null_ls.builtins.diagnostics.ansiblelint)
+        -- Infrastructure
+        terraform = { "terraform_fmt" },
+        hcl = { "terraform_fmt" },
+        yaml = { "prettier" },
+        docker = { "hadolint" },
+        dockerfile = { "hadolint" },
 
-      -- PHP formatters and linters
-      safe_add_source(null_ls.builtins.formatting.phpcsfixer)
-      safe_add_source(null_ls.builtins.diagnostics.phpstan)
+        -- PHP
+        php = { "php_cs_fixer" },
 
-      -- C/C++ formatters
-      safe_add_source(null_ls.builtins.formatting.clang_format)
+        -- C/C++
+        c = { "clang_format" },
+        cpp = { "clang_format" },
 
-      -- Rust formatters
-      safe_add_source(null_ls.builtins.formatting.rustfmt)
+        -- Rust
+        rust = { "rustfmt" },
 
-      return opts
-    end,
+        -- Zig
+        zig = { "zigfmt" },
+
+        -- Lua
+        lua = { "stylua" },
+
+        -- Shell
+        sh = { "shfmt" },
+      },
+      formatters = {
+        -- You can add custom formatter configurations here if needed
+        -- For example:
+        php_cs_fixer = {
+          args = { "--rules=@PSR12" },
+        },
+      },
+    },
+  },
+
+  -- Configure linter
+  {
+    "mfussenegger/nvim-lint",
+    optional = true,
+    opts = {
+      linters_by_ft = {
+        -- Go
+        go = { "golangcilint" },
+
+        -- Python
+        python = { "flake8", "mypy" },
+
+        -- Infrastructure
+        terraform = { "tflint" },
+        dockerfile = { "hadolint" },
+        yaml = { "yamllint" },
+
+        -- PHP
+        php = { "phpstan" },
+
+        -- Shell
+        sh = { "shellcheck" },
+
+        -- Ansible
+        ansible = { "ansible_lint" },
+
+        -- TypeScript/JavaScript
+        typescript = { "eslint" },
+        javascript = { "eslint" },
+      },
+      -- You can add custom linter configurations here if needed
+    },
   },
 
   -- Add special Java configuration (jdtls needs special setup)
@@ -293,8 +344,9 @@ return {
     config = function(_, opts)
       -- The config is automatically applied when the server starts
       local on_attach = function(client, bufnr)
-        -- Enable completion triggered by <c-x><c-o>
+        -- The modern way to set omnifunc
         vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
+
         -- Java-specific mappings
         vim.keymap.set(
           "n",
