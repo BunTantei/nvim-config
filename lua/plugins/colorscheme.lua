@@ -118,6 +118,49 @@ return {
     },
   },
 
+  -- Add Everforest theme (FIXED IMPLEMENTATION)
+  {
+    "sainnhe/everforest",
+    priority = 1000,
+    config = function()
+      -- These are options that work with the original everforest theme
+      vim.g.everforest_background = "medium"
+      vim.g.everforest_better_performance = 1
+      vim.g.everforest_enable_italic = 1
+      vim.g.everforest_diagnostic_text_highlight = 1
+      vim.g.everforest_diagnostic_line_highlight = 0
+      vim.g.everforest_diagnostic_virtual_text = 1
+      vim.g.everforest_current_word = "grey background"
+      vim.g.everforest_disable_italic_comment = 0
+      vim.g.everforest_sign_column_background = "none"
+    end,
+  },
+
+  -- Add Moonfly theme
+  {
+    "bluz71/vim-moonfly-colors",
+    name = "moonfly",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.g.moonflyCursorColor = true
+      vim.g.moonflyItalics = true
+      vim.g.moonflyNormalFloat = true
+      vim.g.moonflyTerminalColors = true
+      vim.g.moonflyUndercurls = true
+      vim.g.moonflyUnderlineMatchParen = true
+      vim.g.moonflyWinSeparator = 2
+    end,
+  },
+
+  -- Add Oxocarbon theme
+  {
+    "nyoom-engineering/oxocarbon.nvim",
+    name = "oxocarbon",
+    lazy = false,
+    priority = 1000,
+  },
+
   -- Other themes you might want to try
   { "folke/tokyonight.nvim", priority = 1000 },
   { "EdenEast/nightfox.nvim", priority = 1000 },
