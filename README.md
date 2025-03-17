@@ -13,6 +13,12 @@ Welcome to my adorable Neovim setup! This configuration is built on LazyVim and 
   - Python (with uv package manager support)
   - JavaScript/TypeScript (for both Deno and Bun)
   - Astro and Svelte for frontend magic
+  - Terraform, Ansible, Docker, k8s...
+  - Java
+  - PHP
+  - C, C++
+  - Zig
+  - Rust
 - **Database Tools**: Connect to PostgreSQL, CockroachDB, SQLite, and ScyllaDB! (⌐■_■)
 - **Docker Integration**: LazyDocker for container management!
 - **GitHub Copilot**: AI-powered coding assistant to make your life easier! ヾ(＠⌒ー⌒＠)ノ
