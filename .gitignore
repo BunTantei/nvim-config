@@ -1,0 +1,25 @@
+tt.*
+.tests
+doc/tags
+debug
+.repro
+foo.*
+*.log
+# LazyVim automatically generated files
+lazy-lock.json
+
+# Plugin installation directories
+.repro/
+.DS_Store
+
+# Temporary plugin files
+plugin/
+
+# Neovim session files
+sessions/
+
+# Log files
+*.log
+
+# Local Lua language server files
+.luarc.json
