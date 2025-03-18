@@ -56,7 +56,7 @@ nvim
 
 LazyVim will automatically install all plugins on first launch! Just sit back and enjoy the show~ (≧◡≦)
 
-### Arch Linux & Kitty Setup Notes
+### Arch Linux Setup Notes
 
 ```bash
 # Install some nice-to-have tools
@@ -72,6 +72,7 @@ You can switch between these gorgeous themes:
 - **Catppuccin**: Sweet and modern!
 - **Kanagawa**: Elegant Japanese vibes!
 - **Rose Pine**: Soothingly natural!
+- And so much more!!! hehe ;D
 
 Change themes with `:Lazy` and search for "colorscheme"! (⁀ᗢ⁀)
 
