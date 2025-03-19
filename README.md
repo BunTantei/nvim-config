@@ -1,13 +1,13 @@
 # (づ｡◕‿‿◕｡)づ My Super Cute Neovim Config
 
-Welcome to my adorable Neovim setup! This configuration is built on LazyVim and customized for developers who work with Go, JavaScript/TypeScript, Python, and web frameworks like Astro and Svelte! (๑˃ᴗ˂)
+Welcome to my adorable Neovim setup! This configuration is built on LazyVim and customized for developers who work with Go, JavaScript/TypeScript, Python..., and web frameworks like Astro and Svelte! (๑˃ᴗ˂)
 
 ![250317_17h24m42s_screenshot](https://github.com/user-attachments/assets/30f2fbfa-7606-4399-bd78-097ed86dca7b)
 
 ## (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ What's Inside?
 
 - **LazyVim Base**: A wonderful starting point with sensible defaults!
-- **Pretty Themes**: Gruvbox, Catppuccin, Kanagawa, and Rose Pine for all your mood changes~
+- **Pretty Themes**: Gruvbox, Catppuccin, Kanagawa, Rose Pine... for all your mood changes~
 - **LSP Support**: For all your favorite languages:
   - Go (with proper tabs, yay!)
   - Python (with uv package manager support)
@@ -19,7 +19,7 @@ Welcome to my adorable Neovim setup! This configuration is built on LazyVim and 
   - C, C++
   - Zig
   - Rust
-- **Database Tools**: Connect to PostgreSQL, CockroachDB, SQLite, and ScyllaDB! (⌐■_■)
+- **Database Tools**: Connect to PostgreSQL, CockroachDB, SQLite... (⌐■_■)
 - **Docker Integration**: LazyDocker for container management!
 - **GitHub Copilot**: AI-powered coding assistant to make your life easier! ヾ(＠⌒ー⌒＠)ノ
 
