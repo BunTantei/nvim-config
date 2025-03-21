@@ -47,21 +47,11 @@ return {
           },
         },
         filetypes = {
-          go = true,
-          python = true,
-          javascript = true,
-          typescript = true,
-          svelte = true,
-          astro = true,
-          html = true,
-          css = true,
-          lua = true,
-          ["*"] = false,
+          ["*"] = true,
         },
       })
     end,
   },
-
   -- Add completion source for nvim-cmp
   {
     "hrsh7th/nvim-cmp",
@@ -76,6 +66,31 @@ return {
     opts = function(_, opts)
       local cmp = require("cmp")
       opts.sources = cmp.config.sources(vim.list_extend(opts.sources, { { name = "copilot", group_index = 2 } }))
+    end,
+  },
+  -- Add floating window support for Copilot Chat
+  {
+    "CopilotC-Nvim/CopilotChat.nvim", -- Correct repository name
+    dependencies = {
+      "zbirenbaum/copilot.lua",
+      "nvim-lua/plenary.nvim", -- Usually needed for async operations
+    },
+    cmd = "CopilotChat",
+    config = function()
+      require("CopilotChat").setup({
+        window = {
+          relative = "editor",
+          border = "rounded",
+          width = 0.6,
+          height = 0.4,
+          row = 0.3,
+          col = 0.2,
+        },
+        keymaps = {
+          open = "<leader>cc",
+          close = "<leader>cq",
+        },
+      })
     end,
   },
 }
