@@ -5,6 +5,7 @@ return {
     build = ":Copilot auth", -- Run auth when installing/updating
     event = { "InsertEnter", "LspAttach" }, -- Load during these events
     config = function()
+      vim.fn.setenv("NODE_EXTRA_CA_CERTS", "")
       require("copilot").setup({
         -- Add this section to specify the auth token path
         copilot_node_command = "node", -- Node.js version used by Copilot
