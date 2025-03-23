@@ -5,12 +5,16 @@ return {
     build = ":Copilot auth", -- Run auth when installing/updating
     event = { "InsertEnter", "LspAttach" }, -- Load during these events
     config = function()
-      vim.g.copilot_node_command = "~/.nvm/versions/node/v16.20.0/bin/node"
+      -- Use a more recent Node.js version or system default Node
+      -- vim.g.copilot_node_command = "node" -- Use system Node.js
+      -- Or if you want to continue using NVM, use a more recent version
+      vim.g.copilot_node_command = "~/.nvm/versions/node/v18.18.2/bin/node" -- Replace with your current LTS Node.js version
 
-      vim.fn.setenv("NODE_EXTRA_CA_CERTS", "")
-      vim.fn.setenv("NODE_TLS_REJECT_UNAUTHORIZED", "0")
+      -- Remove insecure TLS settings
+      -- vim.fn.setenv("NODE_EXTRA_CA_CERTS", "")
+      -- vim.fn.setenv("NODE_TLS_REJECT_UNAUTHORIZED", "0")
+
       require("copilot").setup({
-        -- Add this section to specify the auth token path
         server_opts_overrides = {
           trace = "verbose",
           settings = {
@@ -20,20 +24,15 @@ return {
             },
           },
         },
-        -- Existing configuration...
         panel = {
           enabled = true,
           auto_refresh = true,
           keymap = {
             jump_next = "<c-j>",
             jump_prev = "<c-k>",
-            accept = "<c-a>",
+            accept = "<c-y>", -- Changed from <c-a> to avoid key conflict
             refresh = "r",
             open = "<M-CR>",
-          },
-          layout = {
-            position = "bottom",
-            ratio = 0.4,
           },
         },
         suggestion = {
@@ -41,7 +40,7 @@ return {
           auto_trigger = true,
           debounce = 75,
           keymap = {
-            accept = "<c-a>",
+            accept = "<c-y>", -- Changed from <c-a> to avoid key conflict
             accept_word = false,
             accept_line = false,
             next = "<c-j>",
@@ -73,7 +72,7 @@ return {
   },
   -- Add floating window support for Copilot Chat
   {
-    "CopilotC-Nvim/CopilotChat.nvim", -- Correct repository name
+    "CopilotC-Nvim/CopilotChat.nvim", -- Check for more up-to-date repositories if needed
     dependencies = {
       "zbirenbaum/copilot.lua",
       "nvim-lua/plenary.nvim", -- Usually needed for async operations
