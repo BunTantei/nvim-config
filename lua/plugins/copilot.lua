@@ -40,7 +40,7 @@ return {
           auto_trigger = true,
           debounce = 75,
           keymap = {
-            accept = "<c-y>", -- Changed from <c-a> to avoid key conflict
+            accept = "<c-a>", -- Changed from <c-a> to avoid key conflict
             accept_word = false,
             accept_line = false,
             next = "<c-j>",
