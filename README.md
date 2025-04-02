@@ -1,4 +1,4 @@
-# (づ｡◕‿‿◕｡)づ My Super Cute Neovim Config
+# (づ｡◕‿‿◕｡)づ My Neovim Config
 
 Welcome to my adorable Neovim setup! This configuration is built on LazyVim and customized for developers who work with Go, JavaScript/TypeScript, Python..., and web frameworks like Astro and Svelte! (๑˃ᴗ˂)
 
