@@ -1,6 +1,6 @@
 return {
   -- Disable the default colorscheme
-  { "LazyVim/LazyVim", opts = { colorscheme = "gruvbox" } },
+  { "LazyVim/LazyVim", opts = { colorscheme = "kanagawa" } },
 
   -- Add catppuccin
   {
@@ -53,7 +53,7 @@ return {
       invert_tabline = false,
       invert_intend_guides = false,
       inverse = true, -- invert background for search, diffs, statuslines and errors
-      contrast = "", -- can be "hard", "soft" or empty string
+      contrast = "hard", -- can be "hard", "soft" or empty string
       palette_overrides = {},
       overrides = {},
       dim_inactive = false,
@@ -88,9 +88,9 @@ return {
       overrides = function(colors) -- add custom overrides
         return {}
       end,
-      theme = "wave", -- Load "wave" theme when 'background' option is not set
+      theme = "dragon", -- Load "wave" theme when 'background' option is not set
       background = { -- set theme based on background
-        dark = "wave", -- wave, lotus, dragon
+        dark = "dragon", -- wave, lotus, dragon
         light = "lotus",
       },
     },
@@ -152,7 +152,6 @@ return {
       vim.g.moonflyWinSeparator = 2
     end,
   },
-
   -- Add Oxocarbon theme
   {
     "nyoom-engineering/oxocarbon.nvim",
