@@ -68,9 +68,9 @@ yay -S lazydocker # For Docker integration
 
 You can switch between these gorgeous themes:
 
-- **Gruvbox** (default): Cozy retro feels!
+- **Gruvbox**: Cozy retro feels!
 - **Catppuccin**: Sweet and modern!
-- **Kanagawa**: Elegant Japanese vibes!
+- **Kanagawa** (default) : Elegant Japanese vibes!
 - **Rose Pine**: Soothingly natural!
 - And so much more!!! hehe ;D
 
