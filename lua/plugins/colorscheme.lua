@@ -1,6 +1,6 @@
 return {
   -- Disable the default colorscheme
-  { "LazyVim/LazyVim", opts = { colorscheme = "rose-pine-dawn" } },
+  { "LazyVim/LazyVim", opts = { colorscheme = "kanagawa" } },
 
   -- Add catppuccin
   {
