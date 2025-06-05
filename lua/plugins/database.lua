@@ -22,7 +22,7 @@ return {
 
       -- Example connections (you'll want to update these with your actual credentials)
       vim.g.dbs = {
-        dev_postgres = "postgresql://user:password@localhost:5432/postgres?sslmode=disable",
+        postgres = "postgresql://user:password@localhost:5432/postgres?sslmode=disable",
         cockroach = "postgresql://user:password@localhost:26257/cockroach_db?sslmode=disable",
         sqlite = "sqlite:/path/to/your/database.sqlite",
       }
