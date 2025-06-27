@@ -4,17 +4,294 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        -- Go
+        -- Go (Enhanced configuration)
         gopls = {
           settings = {
             gopls = {
+              -- Enhanced analyses
               analyses = {
                 unusedparams = true,
+                shadow = true,
+                fieldalignment = true,
+                nilness = true,
+                unusedwrite = true,
+                useany = true,
               },
+              -- Enable staticcheck integration
               staticcheck = true,
+              -- Better completion
+              usePlaceholders = true,
+              completeUnimported = true,
+              -- Code lenses for better UX
+              codelenses = {
+                gc_details = false,
+                generate = true,
+                regenerate_cgo = true,
+                run_govulncheck = true,
+                test = true,
+                tidy = true,
+                upgrade_dependency = true,
+                vendor = true,
+              },
+              -- Helpful hints
+              hints = {
+                assignVariableTypes = true,
+                compositeLiteralFields = true,
+                compositeLiteralTypes = true,
+                constantValues = true,
+                functionTypeParameters = true,
+                parameterNames = true,
+                rangeVariableTypes = true,
+              },
+              -- Semantic tokens for better highlighting
+              semanticTokens = true,
             },
           },
         },
+
+        -- Gleam (NEW! ✨)
+        gleam = {
+          cmd = { "gleam", "lsp" },
+          filetypes = { "gleam" },
+          root_dir = require("lspconfig.util").root_pattern("gleam.toml", ".git"),
+        },
+
+        -- Rust (Enhanced configuration)
+        rust_analyzer = {
+          settings = {
+            ["rust-analyzer"] = {
+              -- Enhanced cargo settings
+              cargo = {
+                allFeatures = true,
+                loadOutDirsFromCheck = true,
+                buildScripts = {
+                  enable = true,
+                },
+              },
+              -- Better check on save
+              checkOnSave = {
+                command = "clippy",
+                extraArgs = { "--all", "--", "-W", "clippy::all" },
+              },
+              -- Proc macro support
+              procMacro = {
+                enable = true,
+                ignored = {
+                  leptos_macro = {
+                    "component",
+                    "server",
+                  },
+                },
+              },
+              -- Enhanced diagnostics
+              diagnostics = {
+                enable = true,
+                experimental = {
+                  enable = true,
+                },
+                styleLints = {
+                  enable = true,
+                },
+              },
+              -- Better completion
+              completion = {
+                postfix = {
+                  enable = true,
+                },
+                privateEditable = {
+                  enable = true,
+                },
+                fullFunctionSignatures = {
+                  enable = true,
+                },
+              },
+              -- Hover actions
+              hover = {
+                actions = {
+                  enable = true,
+                  implementations = {
+                    enable = true,
+                  },
+                  references = {
+                    enable = true,
+                  },
+                  run = {
+                    enable = true,
+                  },
+                  debug = {
+                    enable = true,
+                  },
+                },
+              },
+              -- Inlay hints
+              inlayHints = {
+                bindingModeHints = {
+                  enable = false,
+                },
+                chainingHints = {
+                  enable = true,
+                },
+                closingBraceHints = {
+                  enable = true,
+                  minLines = 25,
+                },
+                closureReturnTypeHints = {
+                  enable = "never",
+                },
+                lifetimeElisionHints = {
+                  enable = "never",
+                  useParameterNames = false,
+                },
+                maxLength = 25,
+                parameterHints = {
+                  enable = true,
+                },
+                reborrowHints = {
+                  enable = "never",
+                },
+                renderColons = true,
+                typeHints = {
+                  enable = true,
+                  hideClosureInitialization = false,
+                  hideNamedConstructor = false,
+                },
+              },
+              -- Lens settings
+              lens = {
+                enable = true,
+                debug = {
+                  enable = true,
+                },
+                implementations = {
+                  enable = true,
+                },
+                run = {
+                  enable = true,
+                },
+                methodReferences = {
+                  enable = true,
+                },
+                references = {
+                  adt = {
+                    enable = true,
+                  },
+                  enumVariant = {
+                    enable = true,
+                  },
+                  method = {
+                    enable = true,
+                  },
+                  trait = {
+                    enable = true,
+                  },
+                },
+              },
+            },
+          },
+        },
+
+        -- Svelte (Enhanced)
+        svelte = {
+          settings = {
+            svelte = {
+              plugin = {
+                html = {
+                  completions = {
+                    enable = true,
+                    emmet = false,
+                  },
+                },
+                svelte = {
+                  compilerWarnings = {
+                    ["a11y-accesskey"] = "ignore",
+                    ["a11y-incorrect-aria-attribute-type"] = "ignore",
+                    ["a11y-unknown-aria-attribute"] = "ignore",
+                    ["a11y-hidden"] = "ignore",
+                    ["a11y-misplaced-role"] = "ignore",
+                    ["a11y-unknown-role"] = "ignore",
+                    ["a11y-no-abstract-role"] = "ignore",
+                    ["a11y-no-redundant-roles"] = "ignore",
+                    ["a11y-role-has-required-aria-props"] = "ignore",
+                    ["a11y-autocomplete-valid"] = "ignore",
+                    ["a11y-positive-tabindex"] = "ignore",
+                    ["a11y-invalid-attribute"] = "ignore",
+                    ["a11y-missing-attribute"] = "ignore",
+                    ["a11y-img-redundant-alt"] = "ignore",
+                    ["a11y-label-has-associated-control"] = "ignore",
+                    ["a11y-media-has-caption"] = "ignore",
+                    ["a11y-mouse-events-have-key-events"] = "ignore",
+                    ["a11y-no-autofocus"] = "ignore",
+                    ["a11y-no-distracting-elements"] = "ignore",
+                    ["a11y-no-interactive-element-to-noninteractive-role"] = "ignore",
+                    ["a11y-no-noninteractive-element-interactions"] = "ignore",
+                    ["a11y-no-noninteractive-element-to-interactive-role"] = "ignore",
+                    ["a11y-no-noninteractive-tabindex"] = "ignore",
+                    ["a11y-no-static-element-interactions"] = "ignore",
+                    ["a11y-click-events-have-key-events"] = "ignore",
+                  },
+                  format = {
+                    enable = true,
+                  },
+                },
+                typescript = {
+                  enable = true,
+                  diagnostics = {
+                    enable = true,
+                  },
+                  hover = {
+                    enable = true,
+                  },
+                  completions = {
+                    enable = true,
+                  },
+                  codeActions = {
+                    enable = true,
+                  },
+                  selectionRange = {
+                    enable = true,
+                  },
+                  signatureHelp = {
+                    enable = true,
+                  },
+                  semanticTokens = {
+                    enable = true,
+                  },
+                },
+              },
+            },
+          },
+        },
+
+        -- TypeScript for React (Enhanced)
+        tsserver = {
+          root_dir = require("lspconfig.util").root_pattern("package.json"),
+          single_file_support = false,
+          settings = {
+            typescript = {
+              inlayHints = {
+                includeInlayParameterNameHints = "literal",
+                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                includeInlayFunctionParameterTypeHints = true,
+                includeInlayVariableTypeHints = false,
+                includeInlayPropertyDeclarationTypeHints = true,
+                includeInlayFunctionLikeReturnTypeHints = true,
+                includeInlayEnumMemberValueHints = true,
+              },
+            },
+            javascript = {
+              inlayHints = {
+                includeInlayParameterNameHints = "all",
+                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                includeInlayFunctionParameterTypeHints = true,
+                includeInlayVariableTypeHints = true,
+                includeInlayPropertyDeclarationTypeHints = true,
+                includeInlayFunctionLikeReturnTypeHints = true,
+                includeInlayEnumMemberValueHints = true,
+              },
+            },
+          },
+        },
+
         -- Python with uv package manager
         pyright = {
           settings = {
@@ -27,27 +304,22 @@ return {
             },
           },
         },
+
         -- For Astro
         astro = {},
-        -- For Svelte
-        svelte = {},
+
         -- For Deno
         denols = {
           root_dir = require("lspconfig.util").root_pattern("deno.json", "deno.jsonc"),
         },
-        -- For Bun/Node.js
-        tsserver = {
-          root_dir = require("lspconfig.util").root_pattern("package.json"),
-          single_file_support = false,
-        },
 
-        -- Infrastructure tools
-        terraformls = {}, -- Terraform
-        tflint = {}, -- Terraform linter
-        ansiblels = {}, -- Ansible
-        dockerls = {}, -- Docker
-        docker_compose_language_service = {}, -- Docker Compose
-        yamlls = { -- YAML (for Kubernetes manifests)
+        -- Infrastructure tools (keeping your existing config)
+        terraformls = {},
+        tflint = {},
+        ansiblels = {},
+        dockerls = {},
+        docker_compose_language_service = {},
+        yamlls = {
           settings = {
             yaml = {
               schemas = {
@@ -63,7 +335,7 @@ return {
           },
         },
 
-        -- PHP
+        -- PHP (keeping your config)
         intelephense = {
           settings = {
             intelephense = {
@@ -144,10 +416,10 @@ return {
           },
         },
 
-        -- Java
-        jdtls = {}, -- Will be configured with a more detailed setup
+        -- Java (keeping your config)
+        jdtls = {},
 
-        -- C/C++
+        -- C/C++ (keeping your config)
         clangd = {
           cmd = {
             "clangd",
@@ -158,46 +430,39 @@ return {
           },
         },
 
-        -- Rust
-        rust_analyzer = {
-          settings = {
-            ["rust-analyzer"] = {
-              cargo = {
-                allFeatures = true,
-              },
-              checkOnSave = {
-                command = "clippy",
-              },
-              procMacro = {
-                enable = true,
-              },
-            },
-          },
-        },
-
-        -- Zig
+        -- Zig (keeping your config)
         zls = {},
       },
     },
   },
 
-  -- Add Mason ensure installed servers
+  -- Add Mason ensure installed servers - FIXED PACKAGE NAMES! 🎉
   {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        -- Existing languages
+        -- Your daily languages (prioritized)
         "gopls",
+        "rust-analyzer",
+        -- NOTE: gleam LSP comes with gleam compiler, not available in Mason
+        "svelte-language-server",
+        "typescript-language-server",
+
+        -- Linters/formatters for your daily languages - FIXED NAMES!
+        "staticcheck", -- For Go
+        "gofumpt", -- Better Go formatter
+        "goimports-reviser", -- Updated name for 2025
+        "prettier", -- For Svelte/React
+        "eslint-lsp", -- ← FIXED! This is the correct name in 2025
+
+        -- Rest of your languages
         "pyright",
         "astro-language-server",
-        "svelte-language-server",
         "deno",
-        "typescript-language-server",
         "lua-language-server",
         "stylua",
         "shfmt",
         "shellcheck",
-        "prettier",
 
         -- Infrastructure tools
         "terraform-ls",
@@ -223,29 +488,28 @@ return {
         "clangd",
         "clang-format",
 
-        -- Rust
-        "rust-analyzer",
-        "rustfmt",
-
         -- Zig
         "zls",
       },
     },
   },
 
-  -- Configure formatter
+  -- Configure formatter (Enhanced for your daily languages)
   {
     "stevearc/conform.nvim",
     optional = true,
     opts = {
       formatters_by_ft = {
-        -- Go
-        go = { "gofumpt", "goimports" },
+        -- Go (Enhanced)
+        go = { "gofumpt", "goimports-reviser" }, -- Updated name
 
-        -- Python
-        python = { "black", "isort" },
+        -- Rust
+        rust = { "rustfmt" },
 
-        -- Web development
+        -- Gleam (NEW!)
+        gleam = { "gleam_format" },
+
+        -- Frontend (Enhanced)
         javascript = { "prettier" },
         typescript = { "prettier" },
         javascriptreact = { "prettier" },
@@ -254,7 +518,12 @@ return {
         astro = { "prettier" },
         html = { "prettier" },
         css = { "prettier" },
+        scss = { "prettier" },
         json = { "prettier" },
+        jsonc = { "prettier" },
+
+        -- Python
+        python = { "black", "isort" },
 
         -- Infrastructure
         terraform = { "terraform_fmt" },
@@ -270,9 +539,6 @@ return {
         c = { "clang_format" },
         cpp = { "clang_format" },
 
-        -- Rust
-        rust = { "rustfmt" },
-
         -- Zig
         zig = { "zigfmt" },
 
@@ -283,23 +549,41 @@ return {
         sh = { "shfmt" },
       },
       formatters = {
-        -- You can add custom formatter configurations here if needed
-        -- For example:
+        -- Custom formatter configurations
         php_cs_fixer = {
           args = { "--rules=@PSR12" },
+        },
+        -- Gleam formatter
+        gleam_format = {
+          command = "gleam",
+          args = { "format", "--stdin" },
+          stdin = true,
         },
       },
     },
   },
 
-  -- Configure linter
+  -- Configure linter (FIXED for staticcheck!)
   {
     "mfussenegger/nvim-lint",
     optional = true,
     opts = {
       linters_by_ft = {
-        -- Go
-        go = { "golangcilint" },
+        -- Go (FIXED: Using staticcheck as you wanted!)
+        go = { "staticcheck" },
+
+        -- Rust (clippy is handled by rust-analyzer)
+        -- rust = {}, -- Commented out since rust-analyzer handles this
+
+        -- Gleam (built-in compiler diagnostics are usually enough)
+        -- gleam = {},
+
+        -- Frontend - FIXED: Using eslint_d for better performance
+        typescript = { "eslint_d" },
+        javascript = { "eslint_d" },
+        typescriptreact = { "eslint_d" },
+        javascriptreact = { "eslint_d" },
+        svelte = { "eslint_d" },
 
         -- Python
         python = { "flake8", "mypy" },
@@ -317,37 +601,26 @@ return {
 
         -- Ansible
         ansible = { "ansible_lint" },
-
-        -- TypeScript/JavaScript
-        typescript = { "eslint" },
-        javascript = { "eslint" },
       },
-      -- You can add custom linter configurations here if needed
     },
   },
 
-  -- Add special Java configuration (jdtls needs special setup)
+  -- Add special Java configuration (keeping your existing config)
   {
     "mfussenegger/nvim-jdtls",
     ft = { "java" },
     opts = {
-      -- The command that starts the language server
       cmd = {
         "jdtls",
-        -- These will be filled when the server starts
       },
-      -- This is the default if not provided
       root_dir = function(fname)
         return require("lspconfig.util").root_pattern("pom.xml", "gradle.build", ".git")(fname) or vim.fn.getcwd()
       end,
     },
     config = function(_, opts)
-      -- The config is automatically applied when the server starts
       local on_attach = function(client, bufnr)
-        -- The modern way to set omnifunc
         vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
 
-        -- Java-specific mappings
         vim.keymap.set(
           "n",
           "<leader>ji",
@@ -368,18 +641,15 @@ return {
         )
       end
 
-      -- Attach the language server to Java files
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "java",
         callback = function()
           local jdtls = require("jdtls")
           local jdtls_setup = require("jdtls.setup")
 
-          -- Set up Java project-specific settings
           local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
           local workspace_dir = vim.fn.expand("~/.cache/jdtls/workspace/") .. project_name
 
-          -- Setup configuration with all options
           local config = {
             cmd = {
               "jdtls",
@@ -453,7 +723,6 @@ return {
             },
           }
 
-          -- Start the Java language server with the configuration
           jdtls.start_or_attach(config)
         end,
       })
