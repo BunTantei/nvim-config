@@ -3,8 +3,18 @@
 ### Prerequisites
 
 ```bash
-# Make sure you have these installed first!
-pacman -S neovim git ripgrep fd lazygit node npm
+# Core system tools
+sudo pacman -S neovim git ripgrep fd fzf nodejs npm rustup go docker docker-compose kubectl jq python python-pip terraform helm
+
+# Development tools from AUR
+yay -S lazygit lazydocker gleam k9s tflint ansible-language-server stern kubectx
+
+# Post-install setup
+go install honnef.co/go/tools/cmd/staticcheck@latest
+go install mvdan.cc/gofumpt@latest
+rustup default stable
+rustup component add rust-analyzer clippy rustfmt
+sudo usermod -aG docker $USER
 ```
 
 ### Installation Steps
@@ -31,25 +41,25 @@ nvim
 
 LazyVim will automatically install all plugins on first launch! Just sit back and enjoy the show~ (≧◡≦)
 
-### Arch Linux Setup Notes
-
-```bash
-# Install some nice-to-have tools
-pacman -S lazygit ripgrep fd fzf
-yay -S lazydocker # For Docker integration
-```
-
 ## (◕‿◕✿) Color Themes
 
-You can switch between these gorgeous themes:
-
-- **Gruvbox** (default): Cozy retro feels!
-- **Catppuccin**: Sweet and modern!
-- **Kanagawa**: Elegant Japanese vibes!
-- **Rose Pine**: Soothingly natural!
-- And so much more!!! hehe ;D
-
-Change themes with `:Lazy` and search for "colorscheme xxxxx"! (⁀ᗢ⁀)
+You can switch between these gorgeous themes (⁀ᗢ⁀):
+- :colorscheme gruvbox
+- :colorscheme catppuccin
+- :colorscheme rose-pine
+- :colorscheme kanagawa
+- :colorscheme everforest
+- :colorscheme moonfly
+- :colorscheme oxocarbon
+- :colorscheme tokyonight
+- :colorscheme nightfox
+- :colorscheme github_dark
+- :colorscheme cyberdream
+- :colorscheme onedark
+- :colorscheme melange **default**
+- :colorscheme sonokai
+- :colorscheme dracula
+- :colorscheme flow
 
 ## ⌨️ Useful Keymaps
 
