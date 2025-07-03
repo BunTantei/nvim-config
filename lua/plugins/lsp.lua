@@ -568,13 +568,12 @@ return {
 
   ---
 
-  -- Configure linter (FIXED for golangci-lint!)
   {
     "mfussenegger/nvim-lint",
     optional = true,
     opts = {
       linters_by_ft = {
-        -- Go (FIXED: Using golangci-lint now!)
+        -- Go
         go = { "staticcheck" },
 
         -- Rust (clippy is handled by rust-analyzer)
