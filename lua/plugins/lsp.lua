@@ -17,8 +17,7 @@ return {
                 unusedwrite = true,
                 useany = true,
               },
-              -- Disable staticcheck integration here, we'll use golangci-lint via nvim-lint
-              staticcheck = false, -- Changed to false! 👇
+              staticcheck = true,
               -- Better completion
               usePlaceholders = true,
               completeUnimported = true,
@@ -446,13 +445,12 @@ return {
         -- Your daily languages (prioritized)
         "gopls",
         "rust-analyzer",
-        "golangci-lint", -- Added golangci-lint! 🥳
         -- NOTE: gleam LSP comes with gleam compiler, not available in Mason
         "svelte-language-server",
         "typescript-language-server",
 
         -- Linters/formatters for your daily languages - FIXED NAMES!
-        -- "staticcheck", -- No longer needed here as golangci-lint covers it
+        "staticcheck",
         "gofumpt", -- Better Go formatter
         "goimports-reviser", -- Updated name for 2025
         "prettier", -- For Svelte/React
@@ -577,7 +575,7 @@ return {
     opts = {
       linters_by_ft = {
         -- Go (FIXED: Using golangci-lint now!)
-        go = { "golangci-lint" }, -- Changed from "staticcheck" to "golangci-lint"! 🎉
+        go = { "staticcheck" },
 
         -- Rust (clippy is handled by rust-analyzer)
         -- rust = {}, -- Commented out since rust-analyzer handles this
