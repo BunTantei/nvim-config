@@ -17,8 +17,8 @@ return {
                 unusedwrite = true,
                 useany = true,
               },
-              -- Enable staticcheck integration
-              staticcheck = true,
+              -- Disable staticcheck integration here, we'll use golangci-lint via nvim-lint
+              staticcheck = false, -- Changed to false! 👇
               -- Better completion
               usePlaceholders = true,
               completeUnimported = true,
@@ -436,6 +436,8 @@ return {
     },
   },
 
+  ---
+
   -- Add Mason ensure installed servers - FIXED PACKAGE NAMES! 🎉
   {
     "williamboman/mason.nvim",
@@ -444,12 +446,13 @@ return {
         -- Your daily languages (prioritized)
         "gopls",
         "rust-analyzer",
+        "golangci-lint", -- Added golangci-lint! 🥳
         -- NOTE: gleam LSP comes with gleam compiler, not available in Mason
         "svelte-language-server",
         "typescript-language-server",
 
         -- Linters/formatters for your daily languages - FIXED NAMES!
-        "staticcheck", -- For Go
+        -- "staticcheck", -- No longer needed here as golangci-lint covers it
         "gofumpt", -- Better Go formatter
         "goimports-reviser", -- Updated name for 2025
         "prettier", -- For Svelte/React
@@ -493,6 +496,8 @@ return {
       },
     },
   },
+
+  ---
 
   -- Configure formatter (Enhanced for your daily languages)
   {
@@ -563,14 +568,16 @@ return {
     },
   },
 
-  -- Configure linter (FIXED for staticcheck!)
+  ---
+
+  -- Configure linter (FIXED for golangci-lint!)
   {
     "mfussenegger/nvim-lint",
     optional = true,
     opts = {
       linters_by_ft = {
-        -- Go (FIXED: Using staticcheck as you wanted!)
-        go = { "staticcheck" },
+        -- Go (FIXED: Using golangci-lint now!)
+        go = { "golangci-lint" }, -- Changed from "staticcheck" to "golangci-lint"! 🎉
 
         -- Rust (clippy is handled by rust-analyzer)
         -- rust = {}, -- Commented out since rust-analyzer handles this
@@ -604,6 +611,8 @@ return {
       },
     },
   },
+
+  ---
 
   -- Add special Java configuration (keeping your existing config)
   {
