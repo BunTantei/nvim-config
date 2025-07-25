@@ -4,7 +4,7 @@
 
 ```bash
 # Core system tools
-sudo pacman -S neovim git ripgrep fd fzf nodejs npm rustup go docker docker-compose kubectl jq python python-pip terraform helm
+sudo pacman -S neovim git ripgrep fd fzf nodejs npm go docker docker-compose kubectl jq python python-pip terraform helm
 
 # Development tools from AUR
 yay -S lazygit lazydocker gleam k9s tflint ansible-language-server stern kubectx
@@ -12,8 +12,6 @@ yay -S lazygit lazydocker gleam k9s tflint ansible-language-server stern kubectx
 # Post-install setup
 go install honnef.co/go/tools/cmd/staticcheck@latest
 go install mvdan.cc/gofumpt@latest
-rustup default stable
-rustup component add rust-analyzer clippy rustfmt
 sudo usermod -aG docker $USER
 ```
 
