@@ -46,7 +46,7 @@ You can switch between these gorgeous themes (⁀ᗢ⁀):
 - :colorscheme catppuccin
 - :colorscheme rose-pine
 - :colorscheme kanagawa
-- :colorscheme everforest
+- :colorscheme everforest **default**
 - :colorscheme moonfly
 - :colorscheme oxocarbon
 - :colorscheme tokyonight
@@ -54,7 +54,7 @@ You can switch between these gorgeous themes (⁀ᗢ⁀):
 - :colorscheme github_dark
 - :colorscheme cyberdream
 - :colorscheme onedark
-- :colorscheme melange **default**
+- :colorscheme melange 
 - :colorscheme sonokai
 - :colorscheme dracula
 - :colorscheme flow
