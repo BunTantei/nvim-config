@@ -1,6 +1,6 @@
 return {
   -- Set default colorscheme (you had gruvbox set as default)
-  { "LazyVim/LazyVim", opts = { colorscheme = "melange" } },
+  { "LazyVim/LazyVim", opts = { colorscheme = "everforest" } },
 
   -- Enhanced Catppuccin with latest features
   {
