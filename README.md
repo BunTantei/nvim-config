@@ -28,7 +28,7 @@ mv ~/.config/nvim ~/.config/nvim.backup
 
 ```bash
 # Clone the configuration
-git clone https://github.com/WST-T/nvim-config.git ~/.config/nvim
+git clone https://github.com/BunTantei/nvim-config.git ~/.config/nvim
 ```
 
 3. **Start Neovim** and watch the magic happen! (ﾉ≧∀≦)ﾉ
