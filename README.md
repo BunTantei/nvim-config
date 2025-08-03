@@ -1,4 +1,4 @@
-# (づ｡◕‿‿◕｡)づ My Neovim Config
+# (づ｡◕‿‿◕｡)づ
 
 ### Prerequisites
 
@@ -40,31 +40,3 @@ nvim
 ```
 
 LazyVim will automatically install all plugins on first launch! Just sit back and enjoy the show~ (≧◡≦)
-
-## (◕‿◕✿) Color Themes
-
-You can switch between these gorgeous themes (⁀ᗢ⁀):
-- :colorscheme gruvbox
-- :colorscheme catppuccin
-- :colorscheme rose-pine
-- :colorscheme kanagawa
-- :colorscheme everforest **default**
-- :colorscheme moonfly
-- :colorscheme oxocarbon
-- :colorscheme tokyonight
-- :colorscheme nightfox
-- :colorscheme github_dark
-- :colorscheme cyberdream
-- :colorscheme onedark
-- :colorscheme melange 
-- :colorscheme sonokai
-- :colorscheme dracula
-- :colorscheme flow
-
-## ⌨️ Useful Keymaps
-
-- `<leader>db` - Toggle database UI (◠‿◠)
-- `<leader>ld` - Open LazyDocker (>ᴗ<)
-- `<Space>` is your leader key! d(･∀･○)
-
-Happy coding! (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
